@@ -1,0 +1,36 @@
+# Red Pill — Matrix-inspired. Green code rain is the FIAT illusion you were
+# born into; Bitcoin orange is the red pill. Accent = the choice you made.
+mode = "dark"
+
+accent = "#f7931a"
+selection = "#123a1e"
+muted = "#2c5138"
+
+background = "#050b07"
+dark_background = "#030704"
+darker_background = "#020402"
+lighter_background = "#0b170f"
+
+foreground = "#c8f5d4"
+dark_foreground = "#4e7a5e"
+light_foreground = "#a2e0b4"
+bright_foreground = "#e8fff0"
+
+hyprland_active_border = "rgba(00d94aee) rgba(f7931aee) 45deg"
+hyprland_inactive_border = "rgba(0e2417aa)"
+
+red = "#ff4d2e"
+yellow = "#f7c948"
+orange = "#f7931a"
+green = "#00d94a"
+cyan = "#2fd6a8"
+blue = "#3f6f9e"
+magenta = "#a16fb0"
+brown = "#7a5a2a"
+
+bright_red = "#ff6f4d"
+bright_yellow = "#ffdf7a"
+bright_green = "#5cff8a"
+bright_cyan = "#5ff0c6"
+bright_blue = "#6f9fd0"
+bright_magenta = "#c496d4"
