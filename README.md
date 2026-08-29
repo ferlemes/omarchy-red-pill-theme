@@ -10,6 +10,8 @@ system you woke up in, `#f7931a` is the accent you chose.
 
 ## Install
 
+Requires Omarchy 4.
+
 ```sh
 omarchy theme install https://github.com/ferlemes/omarchy-red-pill-theme.git
 ```
@@ -46,6 +48,9 @@ Optional, and not installed by the theme — it needs the
 plugin, which replaces Omarchy's built-in lock service with one that can load
 custom designs:
 
+The paths below assume the theme was installed with the command above, which
+puts it in `~/.config/omarchy/themes/red-pill/`.
+
 ```sh
 omarchy plugin add https://github.com/SirJul1337/omarchy-lock-explorer.git --enable
 omarchy restart shell
@@ -75,6 +80,22 @@ What it does:
 
 Every color it uses comes from the active theme, so it follows along if you
 tweak `colors.toml`.
+
+To go back to another design, `omarchy-shell lock setDesign classic` (or pick
+one in `omarchy-shell lock explore`). Removing the plugin restores Omarchy's
+built-in lock screen and leaves your designs alone:
+
+```sh
+rm ~/.config/omarchy/lock-designs/RedPill.qml
+omarchy plugin remove io.github.sirjul1337.lock-explorer
+omarchy restart shell
+```
+
+## Uninstall
+
+```sh
+omarchy theme remove red-pill
+```
 
 ## Credits
 
