@@ -50,10 +50,14 @@ custom designs:
 omarchy plugin add https://github.com/SirJul1337/omarchy-lock-explorer.git --enable
 omarchy restart shell
 
+mkdir -p ~/.config/omarchy/lock-designs
 cp ~/.config/omarchy/themes/red-pill/lock-designs/RedPill.qml ~/.config/omarchy/lock-designs/
 omarchy-shell lock rescanDesigns
 omarchy-shell lock setDesign my-redpill
 ```
+
+The design shows up as *Red Pill* under **Custom** in the picker
+(`omarchy-shell lock explore`), so you can preview it there before switching.
 
 What it does:
 
