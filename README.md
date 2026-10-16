@@ -25,7 +25,9 @@ paste the repo URL.
   a green-to-orange Hyprland border gradient that carries the same idea into
   window focus, notifications and the lock screen input.
 - **10 wallpapers** at 3840x2160.
-- **ASCII screensaver** — `₿ WAKE UP · FIAT IS THE MATRIX · 21,000,000 ₿`.
+- **ASCII screensaver** — the ₿ BITCOIN logo over
+  `₿ FIX THE MONEY · FREE THE PEOPLE ₿`: separate money from state, opt out
+  peacefully, no permission required.
 - **An optional lock screen design** (see below).
 
 ![Wallpapers](preview-wallpapers.png)
