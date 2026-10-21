@@ -9,6 +9,7 @@
 // cold blue, no bitcoin, infinite supply. Both pills unlock the same way.
 import QtQuick
 import qs.Commons
+import qs.Commons as Commons
 import "../plugins/io.github.sirjul1337.lock-explorer/designs"
 
 DesignBase {
@@ -25,11 +26,11 @@ DesignBase {
   // The signal: what a block hash is actually made of.
   readonly property string hashGlyphs: "0123456789abcdef"
 
-  readonly property color fiatColor: redPill ? Color.lock.borderActive : blueColor
-  readonly property color coinColor: Color.accent
+  readonly property color fiatColor: redPill ? Commons.Color.lock.borderActive : blueColor
+  readonly property color coinColor: Commons.Color.accent
   readonly property color blueColor: "#4a86c8"
-  readonly property color tint: errorState ? Color.lock.textError : (redPill ? Color.accent : blueColor)
-  readonly property color canvasBg: Qt.darker(Color.background, 1.4)
+  readonly property color tint: errorState ? Commons.Color.lock.textError : (redPill ? Commons.Color.accent : blueColor)
+  readonly property color canvasBg: Qt.darker(Commons.Color.background, 1.4)
 
   // Local estimate, no network: block 840,000 (the 2024 halving) plus one
   // block per 10 minutes. Off by a few hundred blocks, hence the "≈".
@@ -109,7 +110,7 @@ DesignBase {
       for (var i = 0; i < d.length; i++) {
         var coin = lock.redPill && d[i].coin
         var body = coin ? lock.coinColor : lock.fiatColor
-        var head = coin ? Qt.lighter(lock.coinColor, 1.35) : Color.lock.text
+        var head = coin ? Qt.lighter(lock.coinColor, 1.35) : Commons.Color.lock.text
         var set = coin ? lock.hashGlyphs : lock.fiatGlyphs
         var x = i * lock.cellSize
         var y = Math.floor(d[i].y) * lock.cellSize
@@ -179,7 +180,7 @@ DesignBase {
       Text {
         anchors.verticalCenter: parent.verticalCenter
         text: pill.label
-        color: pill.chosen ? lock.withAlpha(Color.lock.text, 0.95) : lock.withAlpha(Color.lock.text, 0.5)
+        color: pill.chosen ? lock.withAlpha(Commons.Color.lock.text, 0.95) : lock.withAlpha(Commons.Color.lock.text, 0.5)
         font.family: Style.font.family
         font.pixelSize: Style.font.body
         font.letterSpacing: 2
@@ -204,7 +205,7 @@ DesignBase {
     width: box.implicitWidth + 80
     height: box.implicitHeight + 64
     radius: 6
-    color: lock.withAlpha(Color.background, 0.82)
+    color: lock.withAlpha(Commons.Color.background, 0.82)
     border.width: 1
     border.color: lock.withAlpha(lock.tint, 0.6)
     Behavior on border.color { ColorAnimation { duration: 160 } }
@@ -226,7 +227,7 @@ DesignBase {
       Text {
         anchors.horizontalCenter: parent.horizontalCenter
         text: (lock.redPill ? "wake up, " : "sleep well, ") + lock.userName + "..."
-        color: lock.withAlpha(Color.lock.text, 0.8)
+        color: lock.withAlpha(Commons.Color.lock.text, 0.8)
         font.family: Style.font.family
         font.pixelSize: Style.font.heading
       }
@@ -239,21 +240,21 @@ DesignBase {
         height: 50
         radius: 4
         outlineThickness: 1
-        color: lock.withAlpha(Color.background, 0.6)
+        color: lock.withAlpha(Commons.Color.background, 0.6)
         placeholder: lock.redPill ? "follow the white rabbit" : "ignorance is bliss"
         // Red pill keeps the theme's green-to-orange border; blue pill takes
         // the orange out of the picture, like everything else it touches.
         borderSpec: lock.redPill
           ? Border.surfaceSpec("lock", lock.errorState ? "border-error" : "border-active",
-                               lock.errorState ? Color.lock.borderError : Color.lock.borderActive, 1, "border-alpha")
-          : Border.flat(lock.errorState ? Color.lock.borderError : lock.blueColor, 1)
+                               lock.errorState ? Commons.Color.lock.borderError : Commons.Color.lock.borderActive, 1, "border-alpha")
+          : Border.flat(lock.errorState ? Commons.Color.lock.borderError : lock.blueColor, 1)
       }
 
       Row {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: lock.pillGap
         Pill { id: bluePill; red: false; hue: lock.blueColor; label: "BLUE PILL · FIAT" }
-        Pill { id: redPillButton; red: true; hue: Color.accent; label: "RED PILL · ₿" }
+        Pill { id: redPillButton; red: true; hue: Commons.Color.accent; label: "RED PILL · ₿" }
       }
 
       Text {
@@ -270,7 +271,7 @@ DesignBase {
         text: bluePill.hovered ? "you wake up in your bed and believe whatever you want to believe"
             : redPillButton.hovered ? "you stay in wonderland and I show you how deep the rabbit hole goes"
             : (lock.redPill ? "all I'm offering is the truth, nothing more" : "the story ends, and nothing changes")
-        color: lock.withAlpha(Color.lock.text, 0.45)
+        color: lock.withAlpha(Commons.Color.lock.text, 0.45)
         font.family: Style.font.family
         font.pixelSize: Style.font.caption
         font.italic: true
